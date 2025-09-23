@@ -2,11 +2,11 @@
 
 from flask import Flask, request, render_template
 import numpy as np
-import pickle
+import joblib
 
 # Load trained model and scaler
-model = pickle.load(open("model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
+model = joblib.load("model.pkl")
+scaler = joblib.load("scaler.pkl")
 
 app = Flask(__name__)
 
