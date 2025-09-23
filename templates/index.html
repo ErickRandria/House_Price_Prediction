@@ -1,36 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Price Prediction</title>
-    {% comment %} <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> {% endcomment %}
+    <title>California House Price Prediction</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        input { margin: 5px; padding: 8px; width: 200px; }
+        button { padding: 10px 20px; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>House Price Prediction</h1>
-        <form action="/predict" method="post">
-            <label for="MedInc">MedInc:</label>
-            <input type="text" id="MedInc" name="MedInc" required>      
-            <label for="fHouseAge">HouseAge:</label>
-            <input type="text" id="HouseAge" name="HouseAge" required>
-            <label for="AveRooms">AveRooms:</label>
-            <input type="text" id="AveRooms" name="AveRooms" required>
-            <label for="AveBedrms">AveBedrms:</label>
-            <input type="text" id="AveBedrms" name="AveBedrms" required>
-            <label for="Population">Population:</label>
-            <input type="text" id="Population" name="Population" required>
-            <label for="AveOccup">AveOccup:</label>
-            <input type="text" id="AveOccup" name="AveOccup" required>
-            <label for="Latitude">Latitude:</label>
-            <input type="text" id="Latitude" name="Latitude" required>
-            <label for="Longitude">Longitude:</label>
-            <input type="text" id="Longitude" name="Longitude" required>
-            <button type="submit">Predict Price</button>
-        </form>
-        {% if prediction %}
-            <h2>Predicted Price: {{ prediction }}</h2>
-        {% endif %}
-    </div>
+    <h2>California House Price Prediction</h2>
+    <form action="/predict" method="post">
+        <input type="text" name="MedInc" placeholder="Median Income"><br>
+        <input type="text" name="HouseAge" placeholder="House Age"><br>
+        <input type="text" name="AveRooms" placeholder="Average Rooms"><br>
+        <input type="text" name="AveBedrms" placeholder="Average Bedrooms"><br>
+        <input type="text" name="Population" placeholder="Population"><br>
+        <input type="text" name="AveOccup" placeholder="Average Occupancy"><br>
+        <input type="text" name="Latitude" placeholder="Latitude"><br>
+        <input type="text" name="Longitude" placeholder="Longitude"><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
 </body>
 </html>
