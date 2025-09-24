@@ -2,7 +2,7 @@ Flask
 matplotlib
 pandas
 numpy
-sklearn
 scikit-learn
 gunicorn
 seaborn
+joblib
